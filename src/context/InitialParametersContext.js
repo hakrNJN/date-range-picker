@@ -87,7 +87,7 @@ export function InitialParametersProvider({ children, props }) {
     colorsPalette: valueParse(colorsPalette, "enabled"),
     language: valueParse(language, "English"),
     startDate: valueParse(startDate, new Date(1900, 0, 0)),
-    endDate: valueParse(endDate, new Date(2025, 0, 0)),
+    endDate: valueParse(endDate, new Date(3025, 0, 0)),
     firstDayOfWeekIndex: valueParse(firstDayOfWeekIndex, 0),
     format: valueParse(format, "DD/MM/YYYY"),
     pickMethod: valueParse(pickMethod, "range"),

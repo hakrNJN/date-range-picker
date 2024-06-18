@@ -1,12 +1,11 @@
 import React from "react"
-import "../styles/button.css"
 import {
   useFormat,
-  usePickMethod,
   useLanguage,
+  usePickMethod,
 } from "../context/InitialParametersContext"
+import "../styles/button.css"
 import { chosenDatesCalculation } from "../utils/generalUtils"
-import calendarIcon from '../images/calendar-icon6.png';
 
 
 export const Button = (props) => {
@@ -32,11 +31,10 @@ export const Button = (props) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <button className="button" onClick={handleClick}>
         {text}
-        <img alt="" src={calendarIcon} className="calendar-icon" />
       </button>
-    </>
+    </React.Fragment>
   )
 }

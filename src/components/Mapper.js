@@ -1,11 +1,11 @@
 import React, { useEffect, useReducer, useState } from "react"
 import "../App.css"
-import { CalendarInstance as BoardInstance } from "./BoardInstance"
 import { useLanguage } from "../context/InitialParametersContext"
+import { getInitialObject, getUpdatedObject } from "../utils/actionsUtils"
 import { updateObject } from "../utils/generalUtils"
+import { CalendarInstance as BoardInstance } from "./BoardInstance"
 import { CalendarHeader } from "./CalendarHeaderComponents/CalendarHeader"
 import { DaysAmountTabButton } from "./DaysAmountTabComponents/DaysAmountTabButton"
-import { getInitialObject, getUpdatedObject } from "../utils/actionsUtils"
 
 const datesHeaderInitialStateCalculation = (language, boardsNum) => {
   let stateObj
@@ -128,7 +128,7 @@ export const Mapper = (props) => {
   }, [boardsNum, defaultColor, endDate, language, startDate])
 
   return (
-    <>
+    <React.Fragment>
       {showCalendar && (
         <div className="date-range-picker" style={marginLeftStyle}>
           <CalendarHeader
@@ -175,7 +175,7 @@ export const Mapper = (props) => {
           />
         </div>
       )}
-    </>
+    </React.Fragment>
   )
 }
 

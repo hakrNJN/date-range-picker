@@ -109,7 +109,7 @@ export function DaysAmountTab(props) {
   }
 
   return (
-    <>
+    <React.Fragment>
       <div className="days-amount-tab-template">
         <div className="days-amount-tab-div" style={style}>
           {defaultRanges.map((range, i) => {
@@ -134,6 +134,6 @@ export function DaysAmountTab(props) {
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   )
 }

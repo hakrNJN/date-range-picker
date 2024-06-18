@@ -1,5 +1,8 @@
+// import React from "react"
 import DateRangePicker from "./App"
+// import ReactDOM from 'react-dom'
 import "./index.css"
+// import * as serviceWorker from "./serviceWorker"
 
 export { DateRangePicker }
 
@@ -14,18 +17,11 @@ export { DateRangePicker }
 //   }
   
 //   ReactDOM.render(
-//     <>
-//       {/* <div
-//           className="sub-title"
-//           href="https://github.com/almogtavor/date-range-picker" 
-//       >
-//               Star
-//       </div> */}
-      
+//     <React.Fragment>
 //       <div className="sub-title">Range picker (default values)</div>
-//       <DateRangePicker callback={callbackFunction} />
+//           <DateRangePicker colorsPalette={'disabled'} callback={callbackFunction} />
       
-//     </>,
+//     </React.Fragment>,
 //     document.getElementById("root")
 //   )
   

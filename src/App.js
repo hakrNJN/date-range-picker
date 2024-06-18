@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import "./App.css"
-import "./styles/button.css"
-import "./styles/date-range-picker-component.css"
-import { InitialParametersProvider } from "./context/InitialParametersContext"
 import { Button } from "./components/Button"
 import { CalendarComponent } from "./components/CalendarComponent"
+import { InitialParametersProvider } from "./context/InitialParametersContext"
+import "./styles/button.css"
+import "./styles/date-range-picker-component.css"
 
 export function App(props) {
   const {

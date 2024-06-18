@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useContext, useState } from "react"
 
 const InitialParametersContext = React.createContext()
 
@@ -82,14 +82,14 @@ export function InitialParametersProvider({ children, props }) {
     defaultColor,
     daysAmountTab,
   } = props
-
+  
   const [valueState] = useState({
     colorsPalette: valueParse(colorsPalette, "enabled"),
     language: valueParse(language, "English"),
     startDate: valueParse(startDate, new Date(1900, 0, 0)),
     endDate: valueParse(endDate, new Date(2025, 0, 0)),
     firstDayOfWeekIndex: valueParse(firstDayOfWeekIndex, 0),
-    format: valueParse(format, "DD-MM-YYYY"),
+    format: valueParse(format, "DD/MM/YYYY"),
     pickMethod: valueParse(pickMethod, "range"),
     selectAllButton: valueParse(selectAllButton, "disabled"),
     initialSelectedColor: defaultColor, // can be undefined, default will be set from config

@@ -44,6 +44,8 @@ $ npm i dates-picker
 ## Usage
 
 ```javascript
+import {DateRangePicker} from 'React-dates-picker-18'
+
 function callbackFunction(dates) {
     console.log(`The range of dates that got picked is: ${dates.text}`);
     console.log(`The min date that got picked is: ${dates.minDate}`);
@@ -59,7 +61,7 @@ function MyComponent() {
       />
     )
   }
-}
+
 ```
 
 ## Options

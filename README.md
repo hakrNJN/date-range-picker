@@ -10,21 +10,24 @@
     <br />
 
 <p align='center'>
-  <a href="https://www.npmjs.com/package/dates-picker"><img alt="NPM" src="https://img.shields.io/badge/v1.0.3-npm-orange"></a>
-  <p align='center'>⚛️📆 Flexible React date range picker calendar with no dependencies</p>
+  <a href="https://www.npmjs.com/package/react-dates-picker-18"><img alt="NPM" src="https://img.shields.io/badge/v1.0.3-npm-orange"></a>
+  <p align='center'>⚛️📆 Flexible React date range picker calendar with no dependencies, </p>
+  <p align='center'>Compatible with React 18💓 </p>
+  <p align='center'>Updated by ItDebojit</p>
+
 </p>
     <br />
     <br />
 </sup>
 
 ![Example Image](public/example-image1.png)
+![Example Image](public/Demo.gif)
 
 ## Demo
 
 Demo page at <https://almogtavor.github.io/date-range-picker/>
 
-<details>
-  <summary>Read More</summary>
+
   
 ## Main Features
 
@@ -38,7 +41,7 @@ Demo page at <https://almogtavor.github.io/date-range-picker/>
 ## Installation
 
 ```sh
-$ npm i dates-picker
+$ npm i react-dates-picker-18
 ```
 
 ## Usage
@@ -130,4 +133,3 @@ function MyComponent() {
 - Component & button sizes parameters
 - Border radius parameter
 - An option to cancel picked range from the input label
-</details>

@@ -1,0 +1,28 @@
+# Directories
+.github/
+.vscode/
+node_modules/
+public/
+src/
+build/ # Exclude this if you're not using it for your npm package
+
+# Files
+.babelrc
+.gitattributes
+.gitignore
+.gitlab-ci.yml
+.prettierrc
+.prettierrc.json
+package-lock.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+*.sublime-workspace
+*.sublime-project
+*.idea/
+*.vs/
+*.vscode/
+*.swp

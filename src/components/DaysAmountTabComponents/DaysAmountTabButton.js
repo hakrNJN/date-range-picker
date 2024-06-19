@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-import "../../styles/DaysAmountTabStyles/days-amount-tab-button.css"
 import {
   useDaysAmountTab,
   useLanguage,
 } from "../../context/InitialParametersContext"
+import chooseDaysAmount from '../../images/choose-days-amount.png'
+import "../../styles/DaysAmountTabStyles/days-amount-tab-button.css"
 import { getOpacityColorStyle } from "../../utils/generalUtils"
 import { DaysAmountTab } from "./DaysAmountTab"
-import chooseDaysAmount from '../../images/choose-days-amount.png';
 
 
 export function DaysAmountTabButton(props) {
@@ -31,7 +31,7 @@ export function DaysAmountTabButton(props) {
   }
 
   return (
-    <>
+    <React.Fragment>
       {enableDaysAmountTab === "enabled" && (
         <div className={templateClassName} lang={language}>
           <div
@@ -57,6 +57,6 @@ export function DaysAmountTabButton(props) {
           datesHeaderStateDispatch={datesHeaderStateDispatch}
         />
       )}
-    </>
+    </React.Fragment>
   )
 }

@@ -1,10 +1,10 @@
 import React from "react"
-import "../../styles/CalendarModesStyles/week.css"
 import { calendarConfig } from "../../configuration/config"
 import {
   useFirstDayOfWeekIndex,
   useLanguage,
 } from "../../context/InitialParametersContext"
+import "../../styles/CalendarModesStyles/week.css"
 
 export const WeekDaysNames = () => {
   const firstDayOfWeekIndex = useFirstDayOfWeekIndex()
@@ -18,7 +18,7 @@ export const WeekDaysNames = () => {
   let count = 0
 
   return (
-    <>
+    <React.Fragment>
       {weekdays.map((weekday) => {
         count++
         const style = { gridColumn: count }
@@ -28,6 +28,6 @@ export const WeekDaysNames = () => {
           </div>
         )
       })}
-    </>
+    </React.Fragment>
   )
 }

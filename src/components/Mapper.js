@@ -144,7 +144,7 @@ export const Mapper = (props) => {
             boardsNum={boardsNum}
           />
           {calendarsIndexes.map((i) => {
-            return (
+             return (
               <BoardInstance
                 selectedColor={selectedColor}
                 setSelectedColor={setSelectedColor}

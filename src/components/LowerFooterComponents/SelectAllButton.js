@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react"
-import "../../styles/LowerFooterStyles/select-all-button.css"
+import React, { useEffect, useRef, useState } from "react";
 import {
-  useLanguage,
   useEndDate,
-  useStartDate,
+  useLanguage,
   useSelectAllButton,
-} from "../../context/InitialParametersContext"
+  useStartDate,
+} from "../../context/InitialParametersContext";
 import checkbox from '../../images/checkbox.png';
-import hoverCheckbox from '../../images/hover-checkbox.png';
 import clickedCheckbox from '../../images/clicked-checkbox.png';
+import hoverCheckbox from '../../images/hover-checkbox.png';
+import "../../styles/LowerFooterStyles/select-all-button.css";
 
 
 function limitDate(
@@ -177,7 +177,7 @@ export const SelectAllButton = (props) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       {selectAllButton === "enabled" && (
         <div
           className="checkbox-div"
@@ -189,6 +189,6 @@ export const SelectAllButton = (props) => {
           <div className="select-all-text">{text}</div>
         </div>
       )}
-    </>
+    </React.Fragment>
   )
 }

@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import ReactDOM from "react-dom"
 import { useFormat } from "../../context/InitialParametersContext"
-import { placeDateInFormat } from "../../utils/generalUtils"
 import "../../styles/DayElementsStyles/tooltip.css"
+import { placeDateInFormat } from "../../utils/generalUtils"
 
 export default function Tooltip(props) {
   const { hoveredDay, dateRef } = props
@@ -43,11 +43,11 @@ export default function Tooltip(props) {
   }, [width])
 
   return ReactDOM.createPortal(
-    <>
+    <React.Fragment>
       <div className="tooltip" style={style} ref={ref}>
         {date}
       </div>
-    </>,
+    </React.Fragment>,
     document.getElementById("root")
   )
 }

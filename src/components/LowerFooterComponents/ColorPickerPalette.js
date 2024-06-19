@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { calendarConfig } from "../../configuration/config"
-import "../../styles/LowerFooterStyles/color-picker-palette.css"
 import {
-  useLanguage,
   useColorsPalette,
   useInitialSelectedColor,
+  useLanguage,
 } from "../../context/InitialParametersContext"
+import pointerHandIcon from '../../images/pointer-hand.png'
+import "../../styles/LowerFooterStyles/color-picker-palette.css"
 import { getOpacityColorStyle } from "../../utils/generalUtils"
-import pointerHandIcon from '../../images/pointer-hand.png';
 
 
 export const ColorPickerPalette = (props) => {
@@ -32,7 +32,7 @@ export const ColorPickerPalette = (props) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       {showPaletteAllowed &&
         colorsPaletteEnabling !== "disabled" &&
         !showColorPicker && (
@@ -72,6 +72,6 @@ export const ColorPickerPalette = (props) => {
           })}
         </div>
       )}
-    </>
+    </React.Fragment>
   )
 }

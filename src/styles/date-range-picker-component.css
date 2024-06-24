@@ -1,5 +1,13 @@
 @import "variables-declaration.css";
 
+.date-range-picker-component-body {
+  user-select: none;
+  display: flex;
+  min-width: 300px;
+  justify-content: center;
+  position: relative;
+}
+
 .date-range-picker-component {
   display: flex;
   justify-content: center;

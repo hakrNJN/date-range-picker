@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react"
 
 const InitialParametersContext = React.createContext()
 
+//custom Hooks
+
 export function useLanguage() {
   return useContext(InitialParametersContext).language
 }
@@ -49,6 +51,8 @@ export function useInitialSelectedColor() {
   return useContext(InitialParametersContext).initialSelectedColor
 }
 
+//Custom Functions
+
 function valueParse(parameter, defaultValue) {
   if (parameter) {
     return parameter
@@ -68,6 +72,7 @@ function checkValidInput(parameter) {
   }
 }
 
+//Provider
 export function InitialParametersProvider({ children, props }) {
   const {
     language,
@@ -96,6 +101,7 @@ export function InitialParametersProvider({ children, props }) {
     daysAmountTab: valueParse(daysAmountTab, "enabled"),
   })
 
+  //#Error Validations Starts here
   if (valueState.endDate < valueState.startDate) {
     throw Object.assign(new Error('"endDate" is bigger than "startDate".'), {
       code: 403,
@@ -175,6 +181,8 @@ export function InitialParametersProvider({ children, props }) {
       { code: 403 }
     )
   }
+
+  //Error Validation Ends
 
   // if (valueState.pickMethod === "range" && valueState.startDate - valueState.endDate) {
   //     throw Object.assign(new Error('"pickMethod" valued "date" prevents enabled days amount tab.'), { code: 403 });

@@ -8,32 +8,34 @@ import { CalendarHeader } from "./CalendarHeaderComponents/CalendarHeader"
 import { DaysAmountTabButton } from "./DaysAmountTabComponents/DaysAmountTabButton"
 
 const datesHeaderInitialStateCalculation = (language, boardsNum) => {
-  let stateObj
-  if (boardsNum === 1) {
-    stateObj = {
-      viewedMonth: { 0: new Date().getMonth() },
-      viewedYear: { 0: new Date().getFullYear() },
-    }
-  } else if (boardsNum === 2) {
-    stateObj = {
-      viewedMonth: { 0: new Date().getMonth(), 1: new Date().getMonth() + 1 },
-      viewedYear: { 0: new Date().getFullYear(), 1: new Date().getFullYear() },
-    }
-    if (stateObj.viewedMonth["1"] === 12) {
-      stateObj.viewedMonth["1"] = 0
-      stateObj.viewedYear["1"] = stateObj.viewedYear["1"] + 1
-    }
-    if (language === "Hebrew") {
-      const leftBoardMonth = stateObj.viewedMonth["0"]
-      let leftBoardYear = stateObj.viewedYear["0"]
-      stateObj.viewedMonth["0"] = stateObj.viewedMonth["1"]
-      stateObj.viewedYear["0"] = stateObj.viewedYear["1"]
-      stateObj.viewedMonth["1"] = leftBoardMonth
-      stateObj.viewedYear["1"] = leftBoardYear
-    }
+  const stateObj = {
+    viewedMonth: {},
+    viewedYear: {},
+  };
+
+  for (let i = 0; i < boardsNum; i++) {
+    const currentMonth = new Date().getMonth() + i;
+    const currentYear = new Date().getFullYear();
+
+    stateObj.viewedMonth[i] = currentMonth % 12;
+    stateObj.viewedYear[i] = currentYear + Math.floor(currentMonth / 12);
   }
-  return stateObj
-}
+
+  if (language === "Hebrew" && boardsNum === 2) {
+    [stateObj.viewedMonth[0], stateObj.viewedMonth[1]] = [
+      stateObj.viewedMonth[1],
+      stateObj.viewedMonth[0],
+    ];
+    [stateObj.viewedYear[0], stateObj.viewedYear[1]] = [
+      stateObj.viewedYear[1],
+      stateObj.viewedYear[0],
+    ];
+  }
+
+  console.log(stateObj);
+  return stateObj;
+};
+
 
 function setViewedMonth(state, payload) {
   return updateObject(state, { viewedMonth: payload.viewedMonth })
@@ -44,6 +46,7 @@ function setViewedYear(state, payload) {
 }
 
 function datesHeaderReducerMapper(state, payload) {
+  console.log('state :', state, 'payload : ',payload)
   if (payload.type === "SET_VIEWED_MONTH") {
     payload.viewedMonth = getUpdatedObject(
       payload.boardsNum,
@@ -53,6 +56,7 @@ function datesHeaderReducerMapper(state, payload) {
     )
     return setViewedMonth(state, payload)
   } else if (payload.type === "SET_VIEWED_YEAR") {
+    console.log('state :', state, 'payload : ',payload)
     payload.viewedYear = getUpdatedObject(
       payload.boardsNum,
       payload.id,
@@ -91,10 +95,14 @@ export const Mapper = (props) => {
     language,
     boardsNum
   )
+
+  console.log('datesHeaderInitialState : ',datesHeaderInitialState)
   const [datesHeaderState, datesHeaderStateDispatch] = useReducer(
     datesHeaderReducerMapper,
     datesHeaderInitialState
   )
+
+  console.log('DatesHeaderState : ',datesHeaderState)
   const calendarsIndexes = [...Array(boardsNum).keys()]
   const marginLeftStyle = getMarginLeft(boardsNum)
 

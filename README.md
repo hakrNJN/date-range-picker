@@ -14,7 +14,7 @@
   <p align='center'>⚛️📆 Flexible React date range picker calendar with no dependencies, </p>
   <p align='center'>Compatible with React 18💓 </p>
   <p align='center'>Updated by ItDebojit</p>
-
+  
 </p>
     <br />
     <br />
@@ -107,6 +107,8 @@ function MyComponent() {
   )
 }
 ```
+
+## Bug : Enabling React.StrictMode will cause error due to double invocation of certain function
 
 ## Options
 

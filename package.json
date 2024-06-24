@@ -1,9 +1,9 @@
 {
   "name": "react-dates-picker-18",
-  "version": "1.0.0-release-preview",
-  "description": "⚛️📆 Flexible React date range picker calendar with no dependencies. Update to React 18, original Source available at https://github.com/almogtavor/date-range-picker.git",
+  "version": "1.0.0-release-preview-1",
+  "description": "⚛️📆 Flexible React date range picker calendar with no dependencies. Update to React 18",
   "private": false,
-  "homepage": "https://github.com/hakrNJN/date-range-picker",
+  "homepage": "https://github.com/almogtavor/date-range-picker.git",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"

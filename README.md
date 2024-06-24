@@ -13,8 +13,18 @@
   <a href="https://www.npmjs.com/package/react-dates-picker-18"><img alt="NPM" src="https://img.shields.io/badge/v1.0.3-npm-orange"></a>
   <p align='center'>⚛️📆 Flexible React date range picker calendar with no dependencies, </p>
   <p align='center'>Compatible with React 18💓 </p>
-  <p align='center'>Updated by ItDebojit</p>
-  
+
+## 🙇 Author
+
+#### Almog Tavor
+- Github: [almogtavor](https://github.com/almogtavor)
+- [Source Available at](https://github.com/almogtavor/date-range-picker)
+
+
+## 🙇 Updated By 
+
+#### ItDebojit
+- Github: [hakrNJN](https://github.com/hakrnjn)
 </p>
     <br />
     <br />
@@ -38,9 +48,11 @@ Demo page at <https://almogtavor.github.io/date-range-picker/>
 - Select all button - an option of selecting all of the current board's dates. Whether viewing dates, months, or years.
 - Boards number - an option of configuring components to be in one board or two boards.
 
+
+
 ## Installation
 
-```sh
+```bash
 $ npm i react-dates-picker-18
 ```
 
@@ -108,10 +120,12 @@ function MyComponent() {
 }
 ```
 
-## Bug : Enabling React.StrictMode will cause error due to double invocation of certain function
+## 🐞 Bug: 
+#### Enabling React.StrictMode will cause error due to double invocation of certain function
+
+
 
 ## Options
-
 | Property            | Type   | Allowed Values                                      | Default Value          | Description                                                                                                                                               |
 | ------------------- | ------ | --------------------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | language            | String | `English`, `Hebrew`                                 | `English`              | component's language. currently support English and Hebrew. Notice Languages such Hebrew changes the whole component from left to right to right to left. |

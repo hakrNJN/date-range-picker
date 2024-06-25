@@ -51,10 +51,12 @@ export const daysAmountTabConfig = {
     English: [
       "Today",
       "Past week",
-      "Past month",
+      "Past Month",
       "Past 3 months",
       "Past 6 months",
-      "Past year",
+      "Past 1 year",
+      "This YTD",
+      "This Month"
     ],
     Hebrew: [
       "היום",
@@ -62,7 +64,8 @@ export const daysAmountTabConfig = {
       "חודש אחורה",
       "שלושה חודשים אחורה",
       "שישה חודשים אחורה",
-      "שנה אחורה",
+      "שנה אחרונה",
+      "זה FY עד היום"
     ],
   },
 }

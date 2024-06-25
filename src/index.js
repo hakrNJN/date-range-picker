@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker"
 
 export { DateRangePicker }
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

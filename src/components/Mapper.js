@@ -32,7 +32,7 @@ const datesHeaderInitialStateCalculation = (language, boardsNum) => {
     ];
   }
 
-  console.log(stateObj);
+  // console.log(stateObj);
   return stateObj;
 };
 
@@ -46,7 +46,7 @@ function setViewedYear(state, payload) {
 }
 
 function datesHeaderReducerMapper(state, payload) {
-  console.log('state :', state, 'payload : ',payload)
+  // console.log('state :', state, 'payload : ',payload)
   if (payload.type === "SET_VIEWED_MONTH") {
     payload.viewedMonth = getUpdatedObject(
       payload.boardsNum,
@@ -56,7 +56,7 @@ function datesHeaderReducerMapper(state, payload) {
     )
     return setViewedMonth(state, payload)
   } else if (payload.type === "SET_VIEWED_YEAR") {
-    console.log('state :', state, 'payload : ',payload)
+    // console.log('state :', state, 'payload : ',payload)
     payload.viewedYear = getUpdatedObject(
       payload.boardsNum,
       payload.id,
@@ -96,13 +96,13 @@ export const Mapper = (props) => {
     boardsNum
   )
 
-  console.log('datesHeaderInitialState : ',datesHeaderInitialState)
+  // console.log('datesHeaderInitialState : ',datesHeaderInitialState)
   const [datesHeaderState, datesHeaderStateDispatch] = useReducer(
     datesHeaderReducerMapper,
     datesHeaderInitialState
   )
 
-  console.log('DatesHeaderState : ',datesHeaderState)
+  // console.log('DatesHeaderState : ',datesHeaderState)
   const calendarsIndexes = [...Array(boardsNum).keys()]
   const marginLeftStyle = getMarginLeft(boardsNum)
 

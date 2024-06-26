@@ -1,5 +1,6 @@
-import React from 'react'
-import DateRangePicker from './DateRangePicker'
+import React from 'react';
+import DateRangePicker from './DateRangePicker';
+import DatePicker from './Test/components';
 
 function callbackFunction(dates) {
     console.log(`The range of dates that got picked is: ${dates.text}`)
@@ -11,11 +12,41 @@ function callbackFunction(dates) {
     console.log(`All dates: ${dates.allDates}`)
 }
 
+const onDateSelect = (startDate, endDate) => {
+    console.log(
+        ' date selected: startDate => %s , endDate => %s',
+        startDate,
+        endDate
+    );
+};
+
+const onClose = (startDate, endDate) => {
+    console.log(
+        ' ok/select:  startDate => %s , endDate => %s ',
+        startDate,
+        endDate
+    );
+};
 
 const Demo = () => {
     return (
         <div>
             <DateRangePicker colorsPalette={'disabled'} callback={callbackFunction} />
+            <div>
+                <DatePicker
+                    onDateSelected={onDateSelect}
+                    defaultValue={{
+                        startDate: new Date('2020-01-05'),
+                        endDate: ''
+                    }}
+                    onClose={onClose}
+                    onOpen={() => console.log(' openend')}
+                // dateFormat="DD-MM-YYYY h:miA"
+                // disableRange
+                // rangeTillEndOfDay
+                // selectTime
+                />
+            </div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { noHandler } from '../../utils';
-import Context from '../context';
+import { Context } from '../context';
 
 import './index.scss';
 

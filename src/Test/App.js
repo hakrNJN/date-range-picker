@@ -55,15 +55,18 @@ const App = () => {
     );
   };
 
+  const date = new Date()
+  console.log(date)
   return (
     <div className="App">
         <div>
           <DatePicker
             onDateSelected={onDateSelect}
             defaultValue={{
-              startDate: new Date('2020-01-05'),
+              startDate: date,
               endDate: ''
-            }}
+          }}
+          
             onClose={onClose}
             onOpen={() => console.log(' openend')}
             // dateFormat="DD-MM-YYYY h:miA"
@@ -148,7 +151,7 @@ const ControlledVisibility =() => {
     <DatePicker
       onDateSelected={onDateSelect}
       defaultValue={{
-        startDate: new Date('2020-01-05'),
+        startDate: new Date(),
         endDate: ''
       }}
       onClose={() => this.setState({ visible: false })}

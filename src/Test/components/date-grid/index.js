@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { dateToInt, getCustomDateObject, getDays, getDaysArray } from '../../utils';
-import Context from '../context';
+import { Context } from '../context';
 import Day from './day';
 import DaysNames from './days-names';
 
 import './index.scss';
+
 
 class DateGrid extends Component {
   actualDate = new Date();

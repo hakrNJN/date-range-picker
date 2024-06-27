@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatDate } from '../../utils';
-import Context from '../context';
+import { Context } from '../context';
 import './index.scss';
 
 const Placeholder = ({
@@ -26,7 +26,7 @@ const Placeholder = ({
         {!!s_date || !!e_date ? (
           <div className="dates-container">
             <DateAndTime format={format} date={s_date} showTime={showTime} />
-            {!!e_date && <b> ~ </b>}
+            {!!e_date && <b> → </b>}
             <DateAndTime format={format} date={e_date} showTime={showTime} />
           </div>
         ) : (

@@ -36,12 +36,12 @@ const Demo = () => {
                 <DatePicker
                     onDateSelected={onDateSelect}
                     defaultValue={{
-                        startDate: new Date('2020-01-05'),
+                        startDate: new Date(),
                         endDate: ''
                     }}
                     onClose={onClose}
                     onOpen={() => console.log(' openend')}
-                // dateFormat="DD-MM-YYYY h:miA"
+                 dateFormat="dd-MM-YYYY"
                 // disableRange
                 // rangeTillEndOfDay
                 // selectTime

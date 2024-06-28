@@ -6,6 +6,7 @@ import './index.scss';
 
 const Footer = ({
   onToday = noHandler(),
+  onSevenday = noHandler(),
   onClose = noHandler(),
   showTime = false,
   customFooter,
@@ -15,6 +16,7 @@ const Footer = ({
   if (customFooter) {
     return customFooter({
       today: onToday,
+      sevenday: onSevenday,
       startDate: startDate ? startDate._date : null,
       endDate: endDate ? endDate._date : null,
       close: () => onClose(startDate, endDate)
@@ -77,18 +79,23 @@ const Footer = ({
       <Buttons
         disableSelect={!fDate && !lDate}
         onToday={onToday}
+        onSevenday={onSevenday}
         onClose={e => onClose(startDate, endDate)}
       />
     </div>
   );
 };
 
-const Buttons = ({ disableSelect, onToday, onClose }) => {
+const Buttons = ({ disableSelect, onToday, onSevenday, onClose }) => {
   return (
     <div className="buttons">
       <button className="today" onClick={onToday}>
         {' '}
-        TODAY{' '}
+        Today{' '}
+      </button>
+      <button className="today" onClick={onSevenday}>
+        {' '}
+        Last 7 Days{' '}
       </button>
       <button disabled={disableSelect} className="select" onClick={onClose}>
         {' '}

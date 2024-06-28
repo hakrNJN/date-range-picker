@@ -20,26 +20,30 @@
     animation: slide-out 0.2s linear;
     &.visible {
       transform: scaleY(1);
-      // transition: transform 0.2s cubic-bezier(0, 0.65, 0.62, 1.03);
       animation: slide-in 0.2s linear;
     }
   }
   .full-date-picker-container {
-    // border: 1px solid gray;
     box-shadow: 0 4px 16px 0 rgba(64, 93, 119, 0.15),
       0 0 2px 0 rgba(96, 111, 123, 0.2);
     border-radius: 4px;
     padding: 10px;
-    display: inline-flex;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     overflow: hidden;
     position: relative;
-    > div {
-      // position: relative;
+    .date-picker-content {
+      flex: 1; /* Takes up remaining space */
+      padding-right: 10px;
+      border-right: 1px solid blue; /* Blue border for date-picker content */
+    }
+    .sidebar {
+      width: 150px;
+      // background-color: #f0f0f0;
     }
     .date-picker {
       font-size: 90%;
-      // padding: 10px;
+      border: none; /* No need for internal border */
     }
     .default-placeholder {
       // padding: 10px;

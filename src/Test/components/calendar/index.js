@@ -310,7 +310,7 @@ const Calendar = (props) => {
   //   selectDaysAgo({ ...props, state, setState, isAnimating,setIsAnimating, onDateSelect }, value)
   // }
 
-  const selectSevenDay = () => {
+  const selectSevenDay = (value) => {
     if (isAnimating) return;
     const { date } = state;
     const {
@@ -327,7 +327,7 @@ const Calendar = (props) => {
 
 
     const fDate = enableRange
-      ? getActualDate(actualIntDate - 7, { ...START_DATE_TIME })
+      ? getActualDate(actualIntDate - value, { ...START_DATE_TIME })
       : null;
     const lDate = getActualDate(actualIntDate, { ...END_DATE_TIME_END_OF_DAY });
     provider.updateContext({
@@ -455,7 +455,7 @@ return (
     <Footer
       customFooter={footer}
       onToday={selectToday}
-      onSevenday={selectDays}
+      onSevenday={() => selectSevenDay(7)}
       onClose={onClose}
       showTime={!!selectTime}
     />

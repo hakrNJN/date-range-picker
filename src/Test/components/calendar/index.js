@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 import {
+  SelectDays,
   dateToInt,
   getActualDate,
   getCustomDateObject,
@@ -228,6 +229,20 @@ const Calendar = (props) => {
     }
   };
 
+  const selectDays = () => {
+    SelectDays({
+      isAnimating,
+      setIsAnimating,
+      actualDate,
+      actualIntDate,
+      enableRange,
+      state,
+      setState,
+      props,
+      value:7
+    });
+  };
+
   const selectToday = () => {
     if (isAnimating) return;
     const { date } = state;
@@ -290,6 +305,10 @@ const Calendar = (props) => {
       }
     }, 500);
   };
+
+  // const handleDaysAgo = (value) => {
+  //   selectDaysAgo({ ...props, state, setState, isAnimating,setIsAnimating, onDateSelect }, value)
+  // }
 
   const selectSevenDay = () => {
     if (isAnimating) return;
@@ -436,7 +455,7 @@ return (
     <Footer
       customFooter={footer}
       onToday={selectToday}
-      onSevenday={selectSevenDay}
+      onSevenday={selectDays}
       onClose={onClose}
       showTime={!!selectTime}
     />

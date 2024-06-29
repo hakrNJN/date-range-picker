@@ -115,3 +115,80 @@ export const formatDate = (format, date = new Date()) => {
   });
   return format;
 };
+
+const START_DATE_TIME = {
+  hours: '12',
+  minutes: '00',
+  period: 'AM'
+};
+const END_DATE_TIME = {
+  hours: '12',
+  minutes: '00',
+  period: 'AM'
+};
+const END_DATE_TIME_END_OF_DAY = {
+  hours: '11',
+  minutes: '59',
+  period: 'PM'
+};
+
+export function SelectDays({
+  isAnimating,
+  setIsAnimating,
+  actualDate,
+  actualIntDate,
+  enableRange,
+  state,
+  setState,
+  props,
+  value
+}) {
+  if (isAnimating) return;
+
+  const { date } = state;
+  const {
+    selectTime,
+    onDateSelected,
+    provider,
+    onClose,
+    closeOnSelect
+  } = props;
+
+  if (date === actualIntDate) {
+    // Call a function or handle this scenario as needed
+  }
+
+  const fDate = enableRange
+    ? getActualDate(actualIntDate - value, { ...START_DATE_TIME })
+    : null;
+  const lDate = getActualDate(actualIntDate, { ...END_DATE_TIME_END_OF_DAY });
+
+  provider.updateContext({
+    startDate: fDate,
+    endDate: lDate
+  });
+
+  if (onDateSelected) {
+    onDateSelected(fDate, lDate);
+    if (closeOnSelect) onClose();
+  }
+
+  setTimeout(() => {
+    setState((prevState) => ({
+      ...prevState,
+      animationClass: '',
+      date: new Date(actualDate)
+    }));
+    setIsAnimating(false);
+    if (!enableRange && !!selectTime) {
+      // Handle time selection as needed
+    }
+  }, 500);
+}
+
+// Example usage:
+// Assuming you have state and setState in your parent component
+// const [state, setState] = useState(/* initial state */);
+// ...
+// selectDaysAgo({ ...props, state, setState }, 7); // Select 7 days ago
+// selectDaysAgo({ ...props, state, setState }, 14); // Select 14 days ago

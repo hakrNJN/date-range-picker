@@ -1,35 +1,25 @@
-.buttons {
+.sideButtons {
   display: flex;
   flex-direction: column; /* Stack buttons vertically */
   align-items: flex-start; /* Align buttons to the start of the container */
-  padding-top: 15px;
-
+  padding: 15px;
+  height: 100%;
   button {
     margin-bottom: 10px; /* Add space between buttons */
-    width: 100%; /* Make buttons take full width */
+    border: none;
+    font-size: 14px;
+    padding-top: 1px;
+    padding-bottom: 2px;
   }
-
-  .today {
+  .day {
     background: transparent;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    color: #1bbf9a;
+    color: #008CBA;
     outline: none;
-    padding: 0;
-    width: 100%;
-  }
-
-  .select {
-    border-radius: 3px;
-    box-shadow: 0 1px 3px -1px #e0e0e0;
-    background-color: #ffffff;
-    border: solid 1px #e0e0e0;
-    padding: 7px 25px;
-    font-weight: bold;
-    outline: none;
-    &:disabled {
-      cursor: not-allowed;
-    }
+    padding: 2px;
+    width: 100px;
+    display: flex;
   }
 }

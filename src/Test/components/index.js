@@ -275,9 +275,9 @@ const RangePicker = ({
     onDateSelected && onDateSelected(firstDate, lastDate);
   };
 
-  const handleClose = () => {
+  const handleClose = (startDate,endDate) => {
     toggleCalendar();
-    onClose && onClose();
+    onClose && onClose(startDate,endDate);
   };
 
   const currentVisible = isVisibilityControlled ? visible === true : showCalendar;

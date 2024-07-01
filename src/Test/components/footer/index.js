@@ -80,23 +80,16 @@ const Footer = ({
         disableSelect={!fDate && !lDate}
         onToday={onToday}
         onSevenday={onSevenday}
-        onClose={e => onClose(startDate, endDate)}
+        onClose={e => onClose(startDate._date, endDate._date)}
       />
     </div>
   );
 };
 
-const Buttons = ({ disableSelect, onToday, onSevenday, onClose }) => {
+const Buttons = ({ disableSelect, onClose }) => {
   return (
     <div className="buttons">
-      <button className="today" onClick={onToday}>
-        {' '}
-        Today{' '}
-      </button>
-      <button className="today" onClick={onSevenday}>
-        {' '}
-        Last 7 Days{' '}
-      </button>
+     
       <button disabled={disableSelect} className="select" onClick={onClose}>
         {' '}
         Select{' '}
@@ -117,6 +110,7 @@ const DateHolder = ({ heading = '', date = '', time, extraClass = '' }) => {
   );
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function(props) {
   return (
     <Context.Consumer>

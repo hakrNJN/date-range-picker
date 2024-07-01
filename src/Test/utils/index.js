@@ -101,6 +101,102 @@ export const getActualDate = (intDate = '', timeObj = {}, format = 12) => {
   };
 };
 
+export const getFYFirstDate = () => {
+  const newDate = new Date();
+  const year = (newDate.getMonth() < 3)?newDate.getFullYear()-1:newDate.getFullYear();
+  const month = 4; // months are 0-based in JS Date
+  const day = 1;
+  // Format date as `yyyyMMdd`
+  const intDate = `${year}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
+
+  const hours = newDate.getHours();
+  const minutes = newDate.getMinutes();
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hoursIn12 = hours % 12 || 12; // Convert to 12-hour format
+
+  return {
+    _date: newDate,
+    _intDate: parseInt(intDate, 10),
+    customObject: {
+      minutes,
+      hours: hoursIn12,
+      period,
+      date: day,
+      month,
+      year,
+      monthNameShort: monthsShort[month - 1], // monthsShort is 0-based
+      monthNameFull: monthsFull[month - 1],  // monthsFull is 0-based
+      day: newDate.getDay()
+    }
+  };
+}
+
+export const getMonthFirstDate = () => {
+  const newDate = new Date();
+  const year = newDate.getFullYear();
+  const month = newDate.getMonth()+1; // months are 0-based in JS Date
+  const day = 1;
+  // Format date as `yyyyMMdd`
+  const intDate = `${year}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
+
+  const hours = newDate.getHours();
+  const minutes = newDate.getMinutes();
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hoursIn12 = hours % 12 || 12; // Convert to 12-hour format
+
+  return {
+    _date: newDate,
+    _intDate: parseInt(intDate, 10),
+    customObject: {
+      minutes,
+      hours: hoursIn12,
+      period,
+      date: day,
+      month,
+      year,
+      monthNameShort: monthsShort[month - 1], // monthsShort is 0-based
+      monthNameFull: monthsFull[month - 1],  // monthsFull is 0-based
+      day: newDate.getDay()
+    }
+  };
+}
+
+
+
+export const getDaysBefore =( days) =>{
+  const newDate = new Date();
+  newDate.setDate(newDate.getDate() - parseInt(days, 10));
+
+  const year = newDate.getFullYear();
+  const month = newDate.getMonth() +1; // months are 0-based in JS Date
+  const day = newDate.getDate();
+  
+
+  // Format date as `yyyyMMdd`
+  const intDate = `${year}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
+
+  const hours = newDate.getHours();
+  const minutes = newDate.getMinutes();
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hoursIn12 = hours % 12 || 12; // Convert to 12-hour format
+
+  return {
+    _date: newDate,
+    _intDate: parseInt(intDate, 10),
+    customObject: {
+      minutes,
+      hours: hoursIn12,
+      period,
+      date: day,
+      month,
+      year,
+      monthNameShort: monthsShort[month - 1], // monthsShort is 0-based
+      monthNameFull: monthsFull[month - 1],  // monthsFull is 0-based
+      day: newDate.getDay()
+    }
+  };
+}
+
 export const dateToInt = date => {
   // make sure both month and day starts with 0 if single digit;
   const month = date.month < 10 ? '0' + date.month : date.month;
@@ -132,63 +228,3 @@ const END_DATE_TIME_END_OF_DAY = {
   period: 'PM'
 };
 
-export function SelectDays({
-  isAnimating,
-  setIsAnimating,
-  actualDate,
-  actualIntDate,
-  enableRange,
-  state,
-  setState,
-  props,
-  value
-}) {
-  if (isAnimating) return;
-
-  const { date } = state;
-  const {
-    selectTime,
-    onDateSelected,
-    provider,
-    onClose,
-    closeOnSelect
-  } = props;
-
-  if (date === actualIntDate) {
-    // Call a function or handle this scenario as needed
-  }
-
-  const fDate = enableRange
-    ? getActualDate(actualIntDate - value, { ...START_DATE_TIME })
-    : null;
-  const lDate = getActualDate(actualIntDate, { ...END_DATE_TIME_END_OF_DAY });
-
-  provider.updateContext({
-    startDate: fDate,
-    endDate: lDate
-  });
-
-  if (onDateSelected) {
-    onDateSelected(fDate, lDate);
-    if (closeOnSelect) onClose();
-  }
-
-  setTimeout(() => {
-    setState((prevState) => ({
-      ...prevState,
-      animationClass: '',
-      date: new Date(actualDate)
-    }));
-    setIsAnimating(false);
-    if (!enableRange && !!selectTime) {
-      // Handle time selection as needed
-    }
-  }, 500);
-}
-
-// Example usage:
-// Assuming you have state and setState in your parent component
-// const [state, setState] = useState(/* initial state */);
-// ...
-// selectDaysAgo({ ...props, state, setState }, 7); // Select 7 days ago
-// selectDaysAgo({ ...props, state, setState }, 14); // Select 14 days ago

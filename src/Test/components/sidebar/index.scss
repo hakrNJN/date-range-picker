@@ -1,25 +1,56 @@
-.sideButtons {
+.sidebar {
+  width: 150px;
   display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  align-items: flex-start; /* Align buttons to the start of the container */
-  padding: 15px;
-  height: 100%;
-  button {
-    margin-bottom: 10px; /* Add space between buttons */
-    border: none;
-    font-size: 14px;
-    padding-top: 1px;
-    padding-bottom: 2px;
-  }
-  .day {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    color: #008CBA;
-    outline: none;
-    padding: 2px;
-    width: 100px;
+  flex-direction: column;
+  // background-color: #f0f0f0;
+  justify-content: space-between;
+  .sideButtons {
     display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start; /* Align buttons to the start of the container */
+    padding: 15px;
+    height: 100%;
+    flex: 1;
+    button {
+      margin-bottom: 10px; /* Add space between buttons */
+      border: none;
+      font-size: 14px;
+      padding-top: 1px;
+      padding-bottom: 2px;
+    }
+    .day {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: #008CBA;
+      outline: none;
+      padding: 2px;
+      width: 100px;
+      display: flex;
+    }
+    
+  }
+  .selectBtn {
+    background-color: #04c27c !important;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 6px 18px;
+    margin-left: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none; 
+    &:hover {
+      background-color: #01854e; /* Optional: Darken on hover for better UX */
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #2d5c4b !important; /* Adjust color for disabled state */
+      color: #cccccc; /* Optional: Change text color for disabled state */
+      opacity: 0.6; /* Optional: Reduce opacity */
+    }
   }
 }

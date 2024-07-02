@@ -36,8 +36,8 @@ const Footer = ({
       minutes,
       period
     } = startDate.customObject;
-    fDate += date + ' ' + monthNameShort + ' ' + year;
-    fDateTime = showTime ? hours + ':' + minutes + ' ' + period : '';
+    fDate += `${date} ${monthNameShort} ${year}`;
+    fDateTime = showTime ? `${hours} : ${minutes} ${period}` : '';
   }
   if (endDate && endDate.customObject) {
     const {
@@ -48,8 +48,8 @@ const Footer = ({
       minutes,
       period
     } = endDate.customObject;
-    lDate += date + ' ' + monthNameShort + ' ' + year;
-    lDateTime = showTime ? hours + ':' + minutes + ' ' + period : '';
+    lDate += `${date} ${monthNameShort} ${year}`;
+    lDateTime = showTime ? `${hours} : ${minutes} ${period}` : '';
   }
   return (
     <div className="default-footer">
@@ -76,12 +76,6 @@ const Footer = ({
           </div>
         </div>
       )}
-      <Buttons
-        disableSelect={!fDate && !lDate}
-        onToday={onToday}
-        onSevenday={onSevenday}
-        onClose={e => onClose(startDate._date, endDate._date)}
-      />
     </div>
   );
 };

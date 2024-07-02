@@ -67,11 +67,11 @@ class DateGrid extends Component {
 
     return arr;
   };
-
   render() {
     const { date, rangeEnabled, provider } = this.props;
     const { hovered } = this.state;
     const { startDate, endDate } = provider;
+    // console.log(startDate, endDate)
     const selected = startDate ? startDate._intDate : null;
     const selected2 = endDate ? endDate._intDate : null;
     let tempDate = date;
@@ -130,6 +130,7 @@ const PreviousMonthDays = ({ days = [] }) => {
   ));
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function(props) {
   return (
     <Context.Consumer>

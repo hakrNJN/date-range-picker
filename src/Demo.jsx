@@ -40,7 +40,7 @@ const Demo = () => {
                         endDate: ''
                     }}
                     onClose={onClose}
-                    onOpen={() => console.log(' openend')}
+                    // onOpen={() => console.log(' openend')}
                  dateFormat="dd-MM-YYYY"
                 // disableRange
                 // rangeTillEndOfDay

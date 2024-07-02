@@ -1,4 +1,4 @@
-@import './common';
+@import "./common";
 
 .date-picker-app-wrapper {
   display: inline-flex;
@@ -37,10 +37,7 @@
       padding-right: 10px;
       border-right: 1px solid blue; /* Blue border for date-picker content */
     }
-    .sidebar {
-      width: 150px;
-      // background-color: #f0f0f0;
-    }
+    
     .date-picker {
       font-size: 90%;
       border: none; /* No need for internal border */

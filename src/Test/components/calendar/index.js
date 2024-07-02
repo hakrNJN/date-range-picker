@@ -624,6 +624,7 @@ const debounce = (func, wait) => {
 };
 
 const updateProviderContext = debounce((provider, startDate, endDate) => {
+  // console.log(startDate,endDate)
   provider.updateContext({ startDate, endDate });
 }, 300);
 
@@ -802,7 +803,7 @@ const Calendar = (props) => {
     dispatch({ type: SET_ANIMATION, animationClass: goingBack ? ANIMATE_LEFT : ANIMATE_RIGHT });
 
     const fDate = getActualDate(actualIntDate, { ...START_DATE_TIME });
-    const lDate = state.enableRange ? getActualDate(actualIntDate, { ...END_DATE_TIME_END_OF_DAY }) : null;
+    const lDate =  null;
     updateProviderContext(provider, fDate, lDate);
 
     onDateSelected(fDate, lDate);
@@ -816,7 +817,7 @@ const Calendar = (props) => {
 
   const selectDaysAgo = (value) => {
     if (state.isAnimating) return;
-    console.log(getDaysBefore(value))
+    // console.log(getDaysBefore(value))
     const fDate = state.enableRange ? getDaysBefore(value) : null;
     const lDate = getActualDate(actualIntDate, { ...END_DATE_TIME_END_OF_DAY });
     updateProviderContext(provider, fDate, lDate);
@@ -936,19 +937,19 @@ const Calendar = (props) => {
           showTime={!!selectTime}
         />
       </div>
-      <div className="sidebar">
-        <SideBar
-          onToday={selectToday}
-          on3Day={() => selectDaysAgo(3)}
-          onSevenday={() => selectDaysAgo(7)}
-          OnMonth={() => selectDaysAgo(30)}
-          on3Month={() => selectDaysAgo(90)}
-          on6Month={() => selectDaysAgo(180)}
-          on1Year={() => selectDaysAgo(365)}
-          onThisMonth={selectMTD}
-          onYTD={selectYTD}
-        />
-      </div>
+      <SideBar
+        onToday={selectToday}
+        on3Day={() => selectDaysAgo(3)}
+        onSevenday={() => selectDaysAgo(7)}
+        OnMonth={() => selectDaysAgo(30)}
+        on3Month={() => selectDaysAgo(90)}
+        on6Month={() => selectDaysAgo(180)}
+        on1Year={() => selectDaysAgo(365)}
+        onThisMonth={selectMTD}
+        onYTD={selectYTD}
+        onClose={onClose}
+        provider={provider}
+      />
     </div>
   );
 };

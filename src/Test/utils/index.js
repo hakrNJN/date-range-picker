@@ -104,8 +104,11 @@ export const getActualDate = (intDate = '', timeObj = {}, format = 12) => {
 export const getFYFirstDate = () => {
   const newDate = new Date();
   const year = (newDate.getMonth() < 3)?newDate.getFullYear()-1:newDate.getFullYear();
-  const month = 4; // months are 0-based in JS Date
+  const month = 3; // months are 0-based in JS Date
   const day = 1;
+  newDate.setDate(1)
+  newDate.setMonth(3)
+  newDate.setFullYear(year)
   // Format date as `yyyyMMdd`
   const intDate = `${year}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
 
@@ -124,8 +127,8 @@ export const getFYFirstDate = () => {
       date: day,
       month,
       year,
-      monthNameShort: monthsShort[month - 1], // monthsShort is 0-based
-      monthNameFull: monthsFull[month - 1],  // monthsFull is 0-based
+      monthNameShort: monthsShort[month], // monthsShort is 0-based
+      monthNameFull: monthsFull[month],  // monthsFull is 0-based
       day: newDate.getDay()
     }
   };
@@ -134,8 +137,9 @@ export const getFYFirstDate = () => {
 export const getMonthFirstDate = () => {
   const newDate = new Date();
   const year = newDate.getFullYear();
-  const month = newDate.getMonth()+1; // months are 0-based in JS Date
+  const month = newDate.getMonth(); // months are 0-based in JS Date
   const day = 1;
+  newDate.setDate(1)
   // Format date as `yyyyMMdd`
   const intDate = `${year}${month.toString().padStart(2, '0')}${day.toString().padStart(2, '0')}`;
 
@@ -154,8 +158,8 @@ export const getMonthFirstDate = () => {
       date: day,
       month,
       year,
-      monthNameShort: monthsShort[month - 1], // monthsShort is 0-based
-      monthNameFull: monthsFull[month - 1],  // monthsFull is 0-based
+      monthNameShort: monthsShort[month ], // monthsShort is 0-based
+      monthNameFull: monthsFull[month],  // monthsFull is 0-based
       day: newDate.getDay()
     }
   };
@@ -168,7 +172,7 @@ export const getDaysBefore =( days) =>{
   newDate.setDate(newDate.getDate() - parseInt(days, 10));
 
   const year = newDate.getFullYear();
-  const month = newDate.getMonth() +1; // months are 0-based in JS Date
+  const month = newDate.getMonth() //+1; // months are 0-based in JS Date
   const day = newDate.getDate();
   
 
@@ -190,8 +194,8 @@ export const getDaysBefore =( days) =>{
       date: day,
       month,
       year,
-      monthNameShort: monthsShort[month - 1], // monthsShort is 0-based
-      monthNameFull: monthsFull[month - 1],  // monthsFull is 0-based
+      monthNameShort: monthsShort[month ], // monthsShort is 0-based
+      monthNameFull: monthsFull[month ],  // monthsFull is 0-based
       day: newDate.getDay()
     }
   };

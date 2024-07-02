@@ -34,6 +34,7 @@ const Day = ({
     const showHoverEffect = isInSelectedRanges || isHovered;
 
     dayContainerClass += isSelected2 ? ' selected' : '';
+    // console.log(selected,selected2)
 
     // if both dates are same don't add first/second class it will give weired effect at the selected date
     if (selected !== selected2) {

@@ -190,17 +190,17 @@ const hiddenStyle = {
   top: '-150%',
 };
 
-const RangePicker = ({
-  onDateSelected,
-  onClose,
-  closeOnOutsideClick = true,
-  onOpen,
-  visible,
-  placeholder,
-  dateFormat,
-  placeholderText,
-  ...props
-}) => {
+const RangePicker = (props) => {
+  const {
+    onDateSelected,
+    onClose,
+    closeOnOutsideClick = true,
+    onOpen,
+    visible,
+    placeholder,
+    dateFormat,
+    placeholderText,
+  } = props
   const calendarRef = useRef();
   const popupRef = useRef();
 
